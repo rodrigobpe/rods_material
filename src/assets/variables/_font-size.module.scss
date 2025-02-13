@@ -1,0 +1,16 @@
+$fontSize:(
+    'Xs': 10px,
+    'Sm': 14px,
+    'Md': 18px,
+    'Lg': 24px,
+    'Xl': 32px,
+    '2xl': 40px,
+    '3xl': 48px,
+    '4px': 56px
+);
+
+:export {
+    @each $key, $size in $fontSize {
+        fontsize#{$key}: #{$size};
+    }
+}

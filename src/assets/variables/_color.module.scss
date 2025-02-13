@@ -1,0 +1,11 @@
+$color: (
+    'White': '#ffffff',
+    'Blue500': #227aff,
+    'Blue600': #035ce2
+);
+
+:export {
+    @each $key, $hexValue in $color {
+        color#{$key}: #{$hexValue}
+    }
+}

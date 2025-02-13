@@ -1,0 +1,15 @@
+$rounded: (
+    'Xs': 2.5px,
+    'Sm': 5.0px,
+    'Md': 7.5px,
+    'Lg': 10px,
+    'Xl': 12.5px,
+    'Full': 100%,
+    'Half': 50%,
+);
+
+:export {
+    @each $key, $size in $rounded {
+        rounded#{$key}: #{$size};
+    }
+}
