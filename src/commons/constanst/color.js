@@ -1,0 +1,14 @@
+export default {
+    WHITE: 'WHITE',
+    BLACK: 'BLACK',
+    BLUE_500: 'BLUE_500',
+    BLUE_600: 'BLUE_600',
+    GREEN_500: 'GREEN_500',
+    GREEN_600: 'GREEN_600',
+    RED_500: 'RED_500',
+    RED_600: 'RED_600',
+    YELLOW_500: 'YELLOW_500',
+    YELLOW_600: 'YELLOW_600',
+    ORANGE_500: 'ORANGE_500',
+    ORANGE_600: 'ORANGE_600',
+}

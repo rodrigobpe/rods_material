@@ -5,6 +5,7 @@ export default {
     SM: styleVariables.roundedSm,
     MD: styleVariables.roundedMd,
     LG: styleVariables.roundedLg,
+    XL: styleVariables.roundedXl,
     FULL: styleVariables.roundedFull,
     HALF: styleVariables.roundedHalf
 }

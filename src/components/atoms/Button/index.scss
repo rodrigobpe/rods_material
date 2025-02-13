@@ -1,3 +1,12 @@
-.r-button:hover{
+.r-button{
+    transition: all .2s linear;
 
+    &:hover{
+        opacity: 1 !important;
+    }
+
+    &:disabled{
+        opacity: 0.5 !important;
+        cursor: not-allowed !important;
+    }
 }

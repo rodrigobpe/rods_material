@@ -1,0 +1,12 @@
+$padding: (
+    'Small': 5px 10px,
+    'Medium': 7px 14px,
+    'Large': 9px 18px,
+    'ExtraLarge': 11px 22px,
+);
+
+:export{
+    @each $key, $size in $padding {
+        padding#{$key}: #{$size};
+    }
+}
