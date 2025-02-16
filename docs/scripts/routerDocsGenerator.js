@@ -3,7 +3,7 @@ import fs from 'node:fs'
 
 const COMPONENTS_PATH = path.resolve('./src/components');
 
-let text = ``;
+let file = ``;
 let imports = `import { createBrowserRouter } from "react-router";\nimport { Pages } from "./pages"`;
 let router = `\n\nexport const router = createBrowserRouter([\n\t{ path: '/docs', Component: Pages },`;
 
@@ -17,6 +17,6 @@ componentsFolder.map((atomicFolder) => {
 })
 
 router +=`\n])\n`;
-text = imports + router;
+file = imports + router;
 
-fs.writeFileSync(path.resolve('./docs/router.js'), text);
+fs.writeFileSync(path.resolve('./docs/router.js'), file);
