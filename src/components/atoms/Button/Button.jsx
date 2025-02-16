@@ -37,7 +37,7 @@ export const Button = ({
             whiteSpace: 'nowrap',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
-            opacity: 0.85
+            opacity: 0.85,
         }
     };
 
@@ -52,3 +52,5 @@ export const Button = ({
         </button>
     )
 };
+
+Button.displayName = 'Atoms/Button'
