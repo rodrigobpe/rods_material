@@ -1,23 +1,22 @@
 import path from 'node:path'
 import fs from 'node:fs'
 
-const COMPONENTS_PATH = path.resolve('./src/components')
+const COMPONENTS_PATH = path.resolve('./src/components');
 
 let text = ``;
 let imports = `import { createBrowserRouter } from "react-router";\nimport { Pages } from "./pages"`;
-let router = `\n\nexport const router = createBrowserRouter([\n\t{ path: '/docs', Component: Pages },`
+let router = `\n\nexport const router = createBrowserRouter([\n\t{ path: '/docs', Component: Pages },`;
 
-const componentsFolder = fs.readdirSync(COMPONENTS_PATH)
+const componentsFolder = fs.readdirSync(COMPONENTS_PATH);
 
 componentsFolder.map((atomicFolder) => {
     fs.readdirSync(`${COMPONENTS_PATH}/${atomicFolder}`).map(componentName => {
-        imports += `\nimport { ${componentName}Page } from "./pages/${atomicFolder}/${componentName}Page"`
-        router += `\n\t{ path: "/docs/${atomicFolder.toLowerCase()}/${componentName.toLowerCase()}", Component: ${componentName}Page },`
-    })
+        imports += `\nimport { ${componentName}Page } from "./pages/${atomicFolder}/${componentName}Page"`;
+        router += `\n\t{ path: "/docs/${atomicFolder.toLowerCase()}/${componentName.toLowerCase()}", Component: ${componentName}Page },`;
+    });
 })
 
+router +=`\n])\n`;
+text = imports + router;
 
-router +=`\n])\n`
-text = imports + router
-
-fs.writeFileSync(path.resolve('./docs/router.js'), text)
+fs.writeFileSync(path.resolve('./docs/router.js'), text);
