@@ -4,7 +4,7 @@ import fs from 'node:fs'
 const COMPONENTS_PATH = path.resolve('./src/components');
 
 let file = ``;
-let imports = `import { createBrowserRouter } from "react-router";\nimport { Pages } from "./pages"`;
+let imports = `// Don't touch this file. It is automatically generated\n\nimport { createBrowserRouter } from "react-router";\nimport { Pages } from "./pages"`;
 let router = `\n\nexport const router = createBrowserRouter([\n\t{ path: '/docs', Component: Pages },`;
 
 const componentsFolder = fs.readdirSync(COMPONENTS_PATH);

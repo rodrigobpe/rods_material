@@ -8,7 +8,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate:routes": "node ./docs/scripts/routerDocsGenerator.js"
+    "generate:routes": "node ./docs/scripts/routerDocsGenerator.js",
+    "generate:docsJson": "node ./docs/scripts/docsJsonGenerator.js",
+    "generate:docs": "npm run generate:routes && npm run generate:docsJson"
   },
   "dependencies": {
     "react": "^19.0.0",
