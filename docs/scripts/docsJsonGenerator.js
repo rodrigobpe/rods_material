@@ -21,17 +21,19 @@ const extractComponentJSDocs = (filePath, componentName) => {
         const docsBlock = match[1].trim();
         const lines = docsBlock.split("\n").map(line => line.replace(/^\s*\*\s?/, "").trim());
         const tags = lines.filter(line => !STRICT_DECORATORS.includes(line.split(" ")[0])  && line.startsWith("@")).map(tag => tag.replace("@","").trim());
-        const props = lines.filter(line => line.startsWith("@param")).map(prop => prop.replace("@param","").trim()).map(
-            prop => {
-                if(prop.match(/\bprops\.\b/) === null) return;
-                 
+        const props = lines.filter(line => line.startsWith("@param") || line.startsWith("@default")).map(prop => prop.replace("@param","").trim()).map(
+            prop => {                
+                if(!prop.match(/\bprops\.\b/)) return
+                
                 return {
-                    type: prop.match(/\{([^}]+)\}/)[1],
+                    type: [...prop.matchAll(/\{([^}]+)\}/g)].map(match => match[1]).toString(),
                     name: [...prop.matchAll(/props\.([a-zA-Z0-9_]+)/g)].map(match => match[1]).toString(),
-                    description: prop.match(/(?<=\s-\s)(.*)/)[1]
+                    description: [...prop.matchAll(/(?<=\s-\s)([^.]*)/g)].map(match => match[1]).toString(),
+                    default: [...prop.matchAll(/@default\s+(.*)/g)].map(match => match[1]).toString()
                 }
             }
         )
+        console.log(props);
         
         file.push({
             tags,
